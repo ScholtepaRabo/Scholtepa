@@ -28,8 +28,8 @@ def init_db():
 # Send verification email
 def send_verification_email(email, token):
     # Configure your email settings here
-    sender_email = "scholtepa@hotmail.com"  # Replace with your email
-    smtp_password = "Dwn7S*ag5U5&"      # Replace with your app password
+    sender_email = st.secrets["email"]["sender_email"]
+    smtp_password = st.secrets["email"]["smtp_password"]
     
     msg = MIMEText(f"Click here to verify your account: http://localhost:8501/verify?token={token}")
     msg['Subject'] = "Verify your Xmas Quiz registration"
@@ -37,11 +37,12 @@ def send_verification_email(email, token):
     msg['To'] = email
 
     try:
-        s = smtplib.SMTP('smtp-mail.outlook.com', 587)
-        s.starttls()
-        s.login(sender_email, smtp_password)
-        s.sendmail(sender_email, [email], msg.as_string())
-        s.quit()
+        with smtplib.SMTP('smtp-mail.outlook.com', 587) as server:
+            server.ehlo()
+            server.starttls()
+            server.ehlo()
+            server.login(sender_email, smtp_password)
+            server.send_message(msg)
     except Exception as e:
         st.error(f"Failed to send email: {str(e)}")
 
