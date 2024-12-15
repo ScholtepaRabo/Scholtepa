@@ -1,24 +1,45 @@
+/* styles.css */
+:root {
+    --ocean-primary: #006994;
+    --ocean-secondary: #004666;
+    --wave-color: #e3f2fd;
+}
+
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
+    background: url('./OIP.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
 }
 
-.photo-frame {
-    display: flex;
-    flex-wrap: wrap;
-    width: 80%;
-    height: 80%;
-    border: 2px solid #ccc;
-    overflow: auto;
+.bg-ocean {
+    background-color: var(--ocean-primary);
 }
 
-.photo-frame img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    margin: 5px;
+.ocean-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(125, 175, 142, 0.1);
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.table {
+    background-color: rgb(100, 41, 41);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: var(--ocean-primary);
+    color: white;
+}
+
+.table tbody tr:hover {
+    background-color: var(--wave-color);
+}
+
+.footer {
+    background-color: var(--ocean-secondary);
+    color: white;
+    padding: 1rem 0;
+    margin-top: auto;
 }
