@@ -4,8 +4,8 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import sqlite3
 
 # Set up Spotify API credentials
-SPOTIPY_CLIENT_ID = '55a72fd6e0fb47e5906e08eea174df97'
-SPOTIPY_CLIENT_SECRET = '8c25ff6abef94a10805f5f4e1ceff1a5'
+SPOTIPY_CLIENT_ID = 'xx'
+SPOTIPY_CLIENT_SECRET = 'xx'
 
 # Authenticate with Spotify
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(

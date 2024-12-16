@@ -46,8 +46,11 @@ with st.form('spotify_form'):
             # Add new data to DataFrame
             df = pd.concat([df, pd.DataFrame([new_data])], ignore_index=True)
             
-            # Save updated DataFrame with append mode
-            pd.DataFrame([new_data]).to_csv('spotify_top5.csv', mode='a', header=not pd.io.common.file_exists('spotify_top5.csv'), index=False)
+            # Save updated DataFrame
+            pd.DataFrame([new_data]).to_csv('spotify_top5.csv', 
+                mode='a', 
+                header=not pd.io.common.file_exists('spotify_top5.csv'), 
+                index=False)
             
             st.success('Your top 5 has been saved!')
             
@@ -55,8 +58,3 @@ with st.form('spotify_form'):
             load_data.clear()
         else:
             st.error('Please fill in all fields!')
-
-# Display the existing entries
-if not df.empty:
-    st.write('### Previous Submissions')
-    st.dataframe(df)
